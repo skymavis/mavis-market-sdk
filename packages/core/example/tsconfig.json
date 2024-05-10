@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "baseUrl": ".",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "react": [ "./node_modules/@types/react" ],
+      "@components/*": [
+        "src/components/*"
+      ]
+    }
+  },
+  "exclude": [
+    "./node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "env": {
+    "es2020": true,
+    "node": true,
+    "jest": true
+  },
+  "types": [
+    "jest"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "property-no-vendor-prefix": null,
+    "property-no-unknown": null,
+    "scss/comment-no-empty": null,
+    "no-invalid-position-at-import-rule": null,
+    "selector-class-pattern": null,
+    "max-line-length": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/percent-placeholder-pattern": null,
+    "selector-pseudo-class-no-unknown": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "scss/no-global-function-names": null
+  }
+}

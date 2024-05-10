@@ -1,0 +1,11 @@
+@import "@roninnetwork/walletgo/dist/base.css";
+@import "@roninnetwork/walletgo/dist/theme/default.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.wlg-dialog-root {
+  .wlg-dialog-wrap {
+    z-index: 99;
+  }
+}
