@@ -1,0 +1,13 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: auto;
+
+  .image {
+    width: 200px;
+    height: auto;
+  }
+}

@@ -1,0 +1,47 @@
+.tokenBanner {
+  position: relative;
+
+  .bannerContainer {
+    position: relative;
+
+    .banner {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .overlay {
+      background: linear-gradient(0deg, rgb(14 17 22 / 90%) 0%, rgb(14 17 22 / 0%) 76.04%);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
+
+  .content {
+    padding: 0 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    position: absolute;
+    bottom: 24px;
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 32px;
+      margin-top: -50px;
+      border: 4px solid #272b34;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}

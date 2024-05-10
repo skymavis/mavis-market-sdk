@@ -1,0 +1,9 @@
+.listingDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  input {
+    text-align: left;
+  }
+}

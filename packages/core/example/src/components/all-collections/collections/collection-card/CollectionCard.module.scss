@@ -1,0 +1,80 @@
+.collectionCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #272b34;
+  padding: 0;
+  gap: 0;
+  background-color: #15181e;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out;
+
+  &:hover {
+    border: 1px solid #0cbcf2;
+    box-shadow: 0 12px 24px 0 rgb(12 188 242 / 55%);
+    transform: rotateX(7deg) translateY(-6px);
+
+    &::after {
+      transform: translateY(0%);
+    }
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(
+      226deg,
+      rgb(255 255 255 / 40%) 0%,
+      rgb(255 255 255 / 40%) 35%,
+      rgb(255 255 255 / 20%) 42%,
+      rgb(255 255 255 / 0%) 60%
+    );
+    transform: translateY(-10%);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  }
+
+  .banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #000;
+  }
+
+  .avatarContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #272b34;
+    background-color: #272b34;
+    margin: auto;
+    margin-top: -50px;
+
+    .avatar {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .footer {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}

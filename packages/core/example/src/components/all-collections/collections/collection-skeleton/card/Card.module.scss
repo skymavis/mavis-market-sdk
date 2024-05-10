@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  border: 1px solid #272b34;
+  padding: 0;
+  overflow: hidden;
+  background-color: #15181e;
+
+  .banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #000;
+  }
+
+  .avatarContainer {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #272b34;
+    margin: auto;
+    margin-top: -50px;
+    z-index: 1;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .detail {
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 250px;
+    margin: auto;
+
+    .titleContainer {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .title {
+        height: 24px;
+      }
+    }
+  }
+}

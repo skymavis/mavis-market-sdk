@@ -1,0 +1,12 @@
+.offers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #272b34;
+    margin-bottom: 8px;
+  }
+}

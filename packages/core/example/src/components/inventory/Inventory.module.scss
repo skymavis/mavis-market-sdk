@@ -1,0 +1,15 @@
+.emptyState {
+  margin-top: 100px;
+}
+
+.inventory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .tokens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+  }
+}

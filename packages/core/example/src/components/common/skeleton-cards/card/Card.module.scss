@@ -1,0 +1,34 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  border: 1px solid #272b34;
+  padding: 0;
+  overflow: hidden;
+  background-color: #15181e;
+
+  .image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .detail {
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .title {
+      height: 24px;
+      border-radius: 8px;
+    }
+
+    .price {
+      height: 24px;
+      border-radius: 8px;
+    }
+  }
+}

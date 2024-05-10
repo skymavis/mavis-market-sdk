@@ -1,0 +1,19 @@
+.emptyState {
+  padding-top: 100px;
+}
+
+.tokensContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .tokens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+}

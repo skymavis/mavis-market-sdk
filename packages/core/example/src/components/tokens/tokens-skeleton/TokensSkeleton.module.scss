@@ -1,0 +1,15 @@
+.tokenSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .bannerContainer {
+    border-radius: 20px;
+    overflow: hidden;
+
+    .banner {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}

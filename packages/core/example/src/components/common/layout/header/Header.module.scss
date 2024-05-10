@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: blur(25px);
+
+  .content {
+    padding: 10px 24px;
+    max-width: 1600px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .logo {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: linear-gradient(to right, #da2eef 0%, #0cbcf2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 3px solid #272b34;
+  }
+}

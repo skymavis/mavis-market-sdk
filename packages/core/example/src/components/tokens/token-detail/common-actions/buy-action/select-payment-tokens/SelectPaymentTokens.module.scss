@@ -1,0 +1,17 @@
+.tabs {
+  width: 100%;
+
+  > div {
+    width: 100%;
+  }
+
+  .token {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .image {
+      width: 16px;
+    }
+  }
+}

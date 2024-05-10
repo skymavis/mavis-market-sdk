@@ -1,0 +1,13 @@
+.layout {
+  background: linear-gradient(120deg, rgb(36 45 57) 11.2%, rgb(16 37 60) 51.2%, rgb(0 0 0) 98.6%);
+
+  .content {
+    min-height: calc(100vh - 48px);
+    padding: 90px 24px 24px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+.successModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+
+  .image {
+    width: 50px;
+  }
+}

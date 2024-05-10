@@ -1,0 +1,71 @@
+.tokenDetailSkeleton {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
+
+  .imageContainer {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+
+    .image {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+
+    .container {
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+
+      .title {
+        height: 30px;
+      }
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid #272b34;
+      width: 100%;
+      background-color: #1a1c1f;
+
+      .listingDetail {
+        height: 50px;
+      }
+
+      .list {
+        display: flex;
+        gap: 8px;
+
+        .item {
+          height: 200px;
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .action {
+          height: 40px;
+        }
+      }
+    }
+  }
+}

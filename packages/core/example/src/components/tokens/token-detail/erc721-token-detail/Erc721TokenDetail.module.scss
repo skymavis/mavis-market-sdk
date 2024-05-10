@@ -1,0 +1,67 @@
+@mixin box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: rgb(26 28 31 / 50%);
+}
+
+.erc721TokenDetail {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
+
+  .image {
+    width: 500px;
+    height: fit-content;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+
+    .listingContainer {
+      @include box;
+
+      width: 100%;
+    }
+
+    .myOfferContainer {
+      @include box;
+
+      width: 100%;
+    }
+
+    .offersContainer {
+      @include box;
+
+      width: 100%;
+    }
+
+    .listingPrice {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .price {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .tokenLogo {
+          height: 30px;
+        }
+      }
+    }
+  }
+}

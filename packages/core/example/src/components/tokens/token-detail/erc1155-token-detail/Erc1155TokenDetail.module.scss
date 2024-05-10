@@ -1,0 +1,31 @@
+.erc1155TokenDetail {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
+
+  .image {
+    width: 500px;
+    min-height: 200px;
+    height: fit-content;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+
+    .balance {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+}

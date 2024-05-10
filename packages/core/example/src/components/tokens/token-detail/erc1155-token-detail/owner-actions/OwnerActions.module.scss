@@ -1,0 +1,20 @@
+.ownerActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: rgb(26 28 31 / 50%);
+
+  .yourListing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,17 @@
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+}

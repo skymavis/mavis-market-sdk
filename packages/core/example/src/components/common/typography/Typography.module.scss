@@ -1,0 +1,33 @@
+.typography {
+  &.size-large {
+    font-size: 24px;
+  }
+
+  &.size-medium {
+    font-size: 20px;
+  }
+
+  &.size-small {
+    font-size: 16px;
+  }
+
+  &.size-xSmall {
+    font-size: 14px;
+  }
+
+  &.color-gray {
+    color: rgb(205 213 229 / 74.9%);
+  }
+
+  &.color-warning {
+    color: #dc9521;
+  }
+
+  &.color-danger {
+    color: #f31260;
+  }
+
+  &.bold {
+    font-weight: 600;
+  }
+}

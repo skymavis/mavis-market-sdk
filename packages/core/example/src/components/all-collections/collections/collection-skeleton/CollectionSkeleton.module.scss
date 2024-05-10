@@ -1,0 +1,10 @@
+.collectionSkeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+  position: relative;
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

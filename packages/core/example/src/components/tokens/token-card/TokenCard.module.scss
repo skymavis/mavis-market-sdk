@@ -1,0 +1,77 @@
+.tokenCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+
+  &:hover {
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(180deg, #da2eef, #0cbcf2);
+      z-index: 0;
+      border-radius: 20px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #da2eef, #0cbcf2);
+      z-index: 0;
+      filter: blur(20px);
+    }
+
+    margin-top: -1px;
+    transition: all 0.7s ease-in-out;
+  }
+
+  .imageWrapper {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+    background-color: #272b34;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+
+    .image {
+      display: flex;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .footer {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #15181e;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 1;
+
+    .tokenName {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 150px;
+    }
+  }
+}

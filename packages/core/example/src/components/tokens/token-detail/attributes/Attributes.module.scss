@@ -1,0 +1,14 @@
+.attributesContainer {
+  padding: 24px;
+  border-radius: 16px;
+  background-color: rgb(26 28 31 / 50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .attributes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}

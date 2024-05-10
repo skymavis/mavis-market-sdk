@@ -1,0 +1,17 @@
+.collectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 400px) {
+    .collections {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+}

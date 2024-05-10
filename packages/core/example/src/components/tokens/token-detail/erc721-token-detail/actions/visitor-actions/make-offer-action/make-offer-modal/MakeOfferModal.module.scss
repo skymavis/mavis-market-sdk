@@ -1,0 +1,11 @@
+.offerDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .balance {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
