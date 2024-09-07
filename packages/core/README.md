@@ -238,6 +238,26 @@ const params = {
 const order = await getErc721Order(params);
 ```
 
+#### _Get erc721 active orders of tokens_
+```javascript
+import { ChainId, getActiveOrdersOfTokens } from '@sky-mavis/mavis-market-core';
+
+const tokenIds = [
+  {
+    tokenAddress: '0x3fe52e39c3241ee5440a57edbb553563356b770c',
+    tokenId: '1460',
+  },
+  {
+    tokenAddress: '0x3fe52e39c3241ee5440a57edbb553563356b770c',
+    tokenId: '508',
+  },
+];
+
+const params = { chainId: ChainId.testnet, tokenIds };
+
+const activeOrdersOfTokens = await getActiveOrdersOfTokens(params);
+```
+
 #### _Get erc1155 orders_
 
 ```javascript
@@ -463,7 +483,7 @@ const isInsufficientBalance = await checkIsInsufficientBalance(
   amount
 );
 
-// check order is valiad
+// check order is valid
 const checkIsOrderValid = async () => {
   const order = await getOrder({ chainId, hash });
   const isValid = await checkIsErc721OrderValid(chainId, order);
@@ -507,6 +527,120 @@ const params = {
   deadline, // seconds,
 };
 const tx = await buyToken(params);
+```
+#### _Bulk buy ERC721 tokens_
+
+```javascript
+import {
+  BulkBuyOrderData,
+  bulkBuyToken,
+  ChainId,
+  Erc,
+  Erc1155SortBy,
+  getActiveOrdersOfTokens,
+  getErc1155Orders,
+  paymentTokens,
+  Token,
+} from '@sky-mavis/mavis-market-core';
+
+import { getOrdersByQuantity } from './src/services/order/getOrdersByQuantity';
+
+const chainId = ChainId.testnet;
+const wallet = createWalletClient();
+const paymentTokenAddress = paymentTokens[chainId][Token.WETH].address;
+const deadline = parseInt(`${new Date().getTime() / 1000 + 30 * 60}`).toString(); // 30 minutes
+
+const tokenIds = [
+  {
+    tokenAddress: '0x3fe52e39c3241ee5440a57edbb553563356b770c',
+    tokenId: '1460',
+  },
+  {
+    tokenAddress: '0x3fe52e39c3241ee5440a57edbb553563356b770c',
+    tokenId: '508',
+  },
+];
+
+const getActiveOrdersOfTokenParams = { chainId: ChainId.testnet, tokenIds };
+const activeOrdersOfTokens = await getActiveOrdersOfTokens(getActiveOrdersOfTokenParams);
+
+const selectedOrders: BulkBuyOrderData[] = activeOrdersOfTokens.map(order => ({
+  order,
+  quantity: 1,
+}));
+
+const tokensNeedToApproveByOrders = await getTokensNeedToApproveByOrders(
+  chainId,
+  wallet,
+  selectedOrders,
+  paymentTokenAddress,
+);
+
+const bulkBuyErc721TokenParams = {
+  chainId,
+  wallet,
+  data: selectedOrders,
+  selectedTokenAddress: paymentTokenAddress,
+  deadline, // seconds,
+  tokenType: Erc.Erc721,
+  requiredAllSuccess: false,
+};
+
+const tx = await bulkBuyToken(bulkBuyErc721TokenParams);
+```
+
+#### _Bulk buy ERC1155 tokens_
+```javascript
+import {
+  BulkBuyOrderData,
+  bulkBuyToken,
+  ChainId,
+  Erc,
+  Erc1155SortBy,
+  getErc1155Orders,
+  paymentTokens,
+  Token,
+} from '@sky-mavis/mavis-market-core';
+
+import { getOrdersByQuantity } from './src/services/order/getOrdersByQuantity';
+
+const chainId = ChainId.testnet;
+const wallet = createWalletClient();
+const paymentTokenAddress = paymentTokens[chainId][Token.WETH].address;
+const quantity = 20;
+const deadline = parseInt(`${new Date().getTime() / 1000 + 30 * 60}`).toString(); // 30 minutes
+
+const getErc1155OrdersParams = {
+  chainId: ChainId.testnet,
+  tokenAddress: '0xb987afb62f67a317b5ddbc05c4ddba528a5dbd09',
+  tokenId: '5',
+  from: 0,
+  size: 10,
+  maker: '0xce21e5ed74935379eda4d9120c3887423f960aac', // Optional,
+  showInvalid: true, // Optional
+  sort: Erc1155SortBy.PriceAsc, // Optional
+};
+const chosenErc1155Orders = await getErc1155Orders(getErc1155OrdersParams);
+
+const selectedOrders: BulkBuyOrderData[] = getOrdersByQuantity(chosenErc1155Orders, quantity);
+
+const tokensNeedToApproveByOrders = await getTokensNeedToApproveByOrders(
+  chainId,
+  wallet,
+  selectedOrders,
+  paymentTokenAddress,
+);
+
+const bulkBuyErc1155TokenParams = {
+  chainId,
+  wallet,
+  data: selectedOrders,
+  selectedTokenAddress: paymentTokenAddress,
+  deadline, // seconds,
+  tokenType: Erc.Erc1155,
+  requiredAllSuccess: false,
+};
+const tx = await bulkBuyToken(bulkBuyErc1155TokenParams);
 ```
 
 #### _Create order_
@@ -637,7 +771,7 @@ const isWronApproved = await checkIsWRonTokenApproved(
   chainId,
   account,
   amount,
-};
+);
 if(!isWronApproved) {
   const params = {
     wallet,
@@ -814,6 +948,64 @@ const {
   priceImpactPercent,
   slippageTolerance,
 } = await getSwapTokenData(params);
+```
+
+#### _Get orders by quantity_
+
+```javascript
+import { getOrdersByQuantity } from '@sky-mavis/mavis-market-core';
+
+const params = {
+  chainId: ChainId.testnet,
+  tokenAddress: '0xb987afb62f67a317b5ddbc05c4ddba528a5dbd09',
+  tokenId: '5',
+  from: 0,
+  size: 10,
+  maker: '0xce21e5ed74935379eda4d9120c3887423f960aac', // Optional,
+  showInvalid: true, // Optional
+  sort: Erc1155SortBy.PriceAsc, // Optional
+};
+const quantity = 50;
+const orders = await getErc1155Orders(params);
+const ordersByQuantity = getOrdersByQuantity(orders, quantity);
+```
+
+#### _Get orders total price_
+
+```javascript
+import {
+  BulkBuyOrderData,
+  ChainId,
+  Erc1155SortBy,
+  getErc1155Orders,
+  getOrdersByQuantity,
+  getOrdersTotalPrice,
+  paymentTokens,
+  Token,
+} from '@sky-mavis/mavis-market-core';
+
+const chainId = ChainId.testnet;
+const wallet = createWalletClient();
+const selectedToken = paymentTokens[chainId][Token.RON];
+const quantity = 20;
+const getErc1155OrdersParams = {
+  chainId: ChainId.testnet,
+  tokenAddress: '0xb987afb62f67a317b5ddbc05c4ddba528a5dbd09',
+  tokenId: '5',
+  from: 0,
+  size: 10,
+  maker: '0xce21e5ed74935379eda4d9120c3887423f960aac', // Optional,
+  showInvalid: true, // Optional
+  sort: Erc1155SortBy.PriceAsc, // Optional
+};
+const chosenErc1155Orders = await getErc1155Orders(getErc1155OrdersParams);
+const selectedOrders: BulkBuyOrderData[] = getOrdersByQuantity(chosenErc1155Orders, quantity);
+const { totalPrice, totalPriceOfEachOrder } = await getOrdersTotalPrice({
+  chainId,
+  wallet,
+  data: selectedOrders,
+  token: selectedToken,
+});
 ```
 
 #### _Convert amount to usd_
